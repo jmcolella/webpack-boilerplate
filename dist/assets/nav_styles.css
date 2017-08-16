@@ -1,10 +1,10 @@
-$primary-color: #1F5673;
-$secondary-color: #759FBC;
-$primary-font: 'Helvetica';
+/* line 5, stdin */
 
 body {
-  font-family: $primary-font;
+  font-family: "Helvetica";
 }
+
+/* line 9, stdin */
 
 .container {
   display: block;
@@ -13,22 +13,33 @@ body {
   margin-right: auto;
 }
 
+/* line 16, stdin */
+
 .center-text {
   text-align: center;
 }
+
+/* line 20, stdin */
 
 .app-header {
   display: block;
   margin: 50px;
 }
 
+/* line 25, stdin */
+
 .app-header h1 {
-  color: $primary-color;
+  color: #1F5673;
   font-weight: bold;
   font-size: 40px;
 }
 
+/* line 31, stdin */
+
 .app-text {
-  color: $secondary-color;
+  color: #759FBC;
   font-size: 20px;
 }
+
+
+/*# sourceMappingURL=nav_styles.css.map*/

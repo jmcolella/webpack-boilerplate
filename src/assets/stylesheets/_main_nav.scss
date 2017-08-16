@@ -1,0 +1,973 @@
+// Base Colors
+// $main-nav-bgcolor:            color('neutral-7');
+// $main-nav-border-color:       color('neutral-5');
+// $main-nav-color-accent:       #ee7832; Needs to be updated when Base Styles are updated
+// $main-nav-font-color:         color('neutral-2');
+// $main-nav-shadow-color:       rgba(0, 0, 0, .1);
+// $main-nav-white:              color('neutral-8');
+
+// Variables
+// $main-nav-border-size:        1px;
+// $main-nav-border:             $main-nav-border-size solid $main-nav-border-color;
+// $main-nav-chevron-left:       url('/images/icon-chevron-left.svg');
+// $main-nav-chevron-right:      url('/images/icon-chevron-right.svg');
+// $main-nav-chevron-spacing:    5px;
+// $main-nav-downarrow-shadow:   2.5px 2.5px 4px $main-nav-shadow-color;
+// $main-nav-logo-margin:        $global-main-nav-logo-margin;
+// $main-nav-logo-width:         $global-main-nav-logo-width;
+// $main-nav-max-width:          rem-calc(1240px);
+// $main-nav-search-icon-size:   rem-calc(18px);
+// $main-nav-search-icon:        url('/images/icon-search.svg');
+// $main-nav-searchbar-height:   ru(1.75);
+// $main-nav-shadow:             0 2px 3px $main-nav-shadow-color;
+// $main-nav-spacing:            ru(1);
+// $main-nav-transition-speed:   .5s;
+// $main-nav-weight-bold:        600;
+// $main-nav-padding:            $global-main-nav-padding;
+
+// Helper classes to make the nav work well with the body on mobile
+// Only necessary in implementation
+// .main-nav-wrapper {
+  // height: $main-nav-searchbar-height;
+
+  // .mod-main-nav-panel {
+    // left: 0;
+    // position: fixed;
+    // top: 0;
+    // width: 100%;
+    // z-index: 100;
+  // }
+// }
+// End Helper
+
+// .mod-main-nav-panel {
+  // @include typography-6;
+
+  // Overrides margin from typography - START
+  // margin: 0;
+  // Overrides margin from typography - END
+
+  // background-color: $main-nav-white;
+  // border-bottom: $main-nav-border;
+  // height: $main-nav-searchbar-height;
+  // transition: height .5s ease;
+  // position: relative;
+  // scss-lint:disable all
+  // This is webkit/Safari specific to enhance performance for intensive transitions/rendering
+  // -webkit-transform: translateZ(0);
+  // -webkit-backface-visibility: hidden;
+  // -webkit-perspective: 1000;
+  // scss-lint:enable all
+
+  // This doesn't belong here.
+  // Requires a mod-article-list refactor
+  // - START
+  // .mod-article-list.grid {
+    // margin: auto;
+  // }
+  // - END
+
+  // Placeholders
+  // %arrow {
+    // background-image: $main-nav-chevron-right;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    // content: '';
+    // display: block;
+    // height: 100%;
+    // position: absolute;
+    // right: $main-nav-chevron-spacing;
+    // top: 0;
+    // width: 11px;
+  // }
+
+  // &.simple {
+    // .nav-panel-wrapper {
+      // background-color: $main-nav-white;
+      // width: 100%;
+      // flex-direction: row;
+      // order: 2;
+      // position: static;
+      // margin-right: $main-nav-spacing;
+    // }
+
+    // .text {
+      // &:last-of-type {
+        // display: none;
+      // }
+    // }
+  // }
+
+  // Base Styles
+  // ul {
+    // font: inherit;
+    // margin-left: 0;
+
+    // a {
+      // display: block;
+      // width: 100%;
+    // }
+
+    // .tag {
+      // display: inline-block;
+      // width: auto;
+    // }
+  // }
+
+  // li {
+    // display: block;
+    // list-style: none;
+    // width: 100%;
+  // }
+
+  // a,
+  // li:not(.intro) {
+    // color: $main-nav-font-color;
+    // font-weight: 400;
+    // text-decoration: none;
+  // }
+
+  // .main-nav-container {
+    // height: 100%;
+  // }
+
+  // .back > span {
+    // font-weight: $main-nav-weight-bold;
+    // padding-left: 2 * $main-nav-spacing;
+    // position: relative;
+
+    // &:before {
+      // @extend %arrow;
+
+      // background-image: $main-nav-chevron-left;
+      // display: inline-block;
+      // left: $main-nav-chevron-spacing;
+      // right: auto;
+    // }
+  // }
+
+  // .close {
+    // display: inline-block;
+    // margin-left: $main-nav-spacing;
+    // outline: none;
+    // position: relative;
+    // top: -2px;
+  // }
+
+  // .cta {
+    // .info {
+      // text-align: center;
+    // }
+  // }
+
+  // .footer {
+    // display: none;
+  // }
+
+  // .hamburger {
+    // :before {
+      // top: -8px;
+    // }
+
+    // :after {
+      // bottom: -8px;
+    // }
+  // }
+
+  // .has-content {
+    // .submenu-header:after {
+      // @extend %arrow;
+    // }
+  // }
+
+  // .info {
+    // @include like-h5();
+
+    // color: $main-nav-font-color;
+    // display: inline-block;
+    // width: 100%;
+    // flex: 1;
+  // }
+
+  // .info-image {
+    // display: none;
+  // }
+
+  // .intro {
+    // @include typography-5;
+
+    // background-color: $main-nav-white;
+    // margin-bottom: 0;
+    // padding-top: $main-nav-spacing;
+
+    // p {
+      // color: $main-nav-font-color;
+    // }
+
+    // strong {
+      // font-weight: $main-nav-weight-bold;
+    // }
+  // }
+
+  // .list {
+    // li {
+      // line-height: initial;
+      // padding: ($main-nav-spacing / 4) 0;
+    // }
+  // }
+
+  // .logo {
+    // left: $main-nav-spacing;
+    // margin-left: -.1rem;
+    // order: 1;
+    // position: absolute;
+    // top: -5px;
+    // transition: transform .3s ease;
+    // z-index: 10;
+  // }
+
+  // .menu-header {
+    // display: inline-block;
+    // padding: .5rem 0;
+  // }
+
+  // .menu-header,
+  // .menu-header > a,
+  // .secondary-nav a {
+    // color: $main-nav-font-color;
+    // font-weight: $main-nav-weight-bold;
+  // }
+
+  // .menu {
+    // .intro,
+    // .blog-articles {
+      // padding: $main-nav-spacing;
+    // }
+
+    // > li {
+      // padding: $main-nav-padding $main-nav-spacing;
+    // }
+  // }
+
+  // .menu,
+  // .secondary-panel {
+    // > li {
+      // border-top: $main-nav-border;
+      // padding: $main-nav-padding $main-nav-spacing;
+      // left: 0;
+    // }
+
+    // > li:first-of-type {
+      // border-top: 0;
+    // }
+
+    // > li:last-of-type {
+      // border-bottom: 0;
+    // }
+
+    // .back {
+      // padding-top: ru(1.25);
+    // }
+  // }
+
+  // .nav-panel-wrapper {
+    // background-color: $main-nav-bgcolor;
+    // display: flex;
+    // flex-direction: column;
+    // height: 100%;
+    // overflow: hidden;
+    // position: relative;
+  // }
+
+  // .primary-nav {
+    // > li:first-of-type {
+      // padding-top: ru(1);
+      // border-top: 0;
+    // }
+  // }
+
+  // .primary-panel {
+    // height: 0;
+    // order: 3;
+    // position: absolute;
+    // top: $main-nav-searchbar-height;
+    // transition: height 1s ease;
+  // }
+
+  // .primary-panel,
+  // .secondary-panel {
+    // height: calc(100% - #{$main-nav-searchbar-height});
+    // top: $main-nav-searchbar-height;
+    // transition: transform $main-nav-transition-speed;
+    // width: 100%;
+  // }
+
+  // .primary-panel-wrapper,
+  // .secondary-panel {
+    // height: 100%;
+    // background-color: $main-nav-white;
+    // overflow: scroll;
+    // -webkit-overflow-scrolling: touch; Disables momentum scrolling on primary to prevent hiding secondary panel
+  // }
+
+  // .secondary-nav {
+    // border-top: $main-nav-border;
+
+    // .nav-header {
+      // padding: $main-nav-spacing;
+    // }
+  // }
+
+  // .secondary-panel {
+    // opacity: 0;
+    // pointer-events: none;
+    // position: absolute;
+    // right: -100%;
+    // top: 0;
+  // }
+
+  // .search {
+    // background-color: $main-nav-white;
+    // border-bottom: $main-nav-border;
+    // height: $main-nav-searchbar-height;
+    // line-height: $main-nav-searchbar-height;
+    // order: 2;
+    // padding: 0 $main-nav-spacing;
+    // text-align: right;
+
+    // .icon {
+      // background-image: $main-nav-search-icon;
+      // background-repeat: no-repeat;
+      // background-size: $main-nav-search-icon-size $main-nav-search-icon-size; Do not use percentage here. Causes flickering
+      // display: inline-block;
+      // padding: $main-nav-search-icon-size / 2;
+      // position: relative;
+      // top: -3px;
+      // vertical-align: middle;
+    // }
+
+    // .icon:after {
+      // margin: auto;
+      // padding: 0 $main-nav-padding;
+    // }
+  // }
+
+  // Special for Swiftype
+  // .icon:not(.st-search-show-outputs) {
+    // display: none;
+  // }
+
+  // .search-input {
+    // background: none;
+    // color: $main-font-color;
+    // display: none;
+    // margin-bottom: 0;
+    // overflow: hidden;
+    // IE Override
+    // &::-ms-clear {
+      // display: none;
+      // height: 0;
+      // width: 0;
+    // }
+  // }
+
+  // .submenu {
+    // > li {
+      // padding: .5rem 0;
+    // }
+  // }
+
+  // .submenu-header {
+    // display: block;
+    // position: relative;
+    // cursor: pointer;
+  // }
+
+  // .has-content a,
+  // .back a {
+    // position: relative;
+  // }
+
+  // ------------------------------
+  // Variant Styles
+  // ------------------------------
+
+  // &.searching {
+    // .search,
+    // .search-input {
+      // width: 100%;
+      // max-width: 100%;
+    // }
+
+    // .primary-panel {
+      // width: 0;
+    // }
+  // }
+
+  // .text-wrapper {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // width: 100%;
+    // height: 100%;
+  // }
+
+  // .text {
+    // @include typography-7;
+    // color: color('neutral-2');
+    // margin-bottom: 0;
+    // max-width: 100%;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+    // white-space: nowrap;
+
+    // i {
+      // font-style: italic;
+    // }
+
+    // b {
+      // font-weight: 700;
+    // }
+  // }
+
+  // a.current-page,
+  // .submenu-header.current-page {
+    // color: $main-nav-color-accent;
+    // transition: all .3s ease;
+  // }
+
+  // @media #{$small-and-medium-only} {
+    // Extra psuedo element to hide body on Safari iOS on mobile scroll
+    // when address bar and status bar appear/disappear.
+
+    // &:after {
+      // display: block;
+      // content: '';
+      // width: 100%;
+      // height: 0;
+      // position: absolute;
+      // bottom: 0;
+      // background-color: $main-nav-white;
+      // transform: translateY(99%);
+      // left: 0;
+      // z-index: 1;
+    // }
+
+    // &.clicked {
+      // height: 100%;
+
+      // &:after {
+        // height: 64pt;
+        // transition: height .3s ease .5s;
+      // }
+    // }
+
+    // .mobile-scroll-buffer {
+      // background-color: $main-nav-color-accent;
+    // }
+
+    // .mobile-collapsed {
+      // transform: translateX(-100%);
+    // }
+
+    // .mobile-active {
+      // .secondary-panel {
+        // opacity: 1;
+        // pointer-events: all;
+      // }
+    // }
+
+    // .mobile-collapsed {
+      // .primary-panel-wrapper {
+        // -webkit-overflow-scrolling: auto; Disables momentum scrolling on primary to prevent hiding secondary panel
+      // }
+    // }
+
+    // &.simple {
+      // .nav-panel-wrapper {
+        // padding-left: 2 * $main-nav-logo-margin + $main-nav-logo-width;
+      // }
+    // }
+  // }
+
+  // Styles for large views
+  // ============================================================================
+  // ============================================================================
+
+  // @media #{$large-up} {
+    // @include typography-7;
+
+    // Overrides margin from typography - START
+    // margin: 0;
+    // Overrides margin from typography - END
+
+    // border-bottom: 0;
+    // box-shadow: $main-nav-shadow;
+    // display: flex;
+    // justify-content: center;
+
+    // li {
+      // line-height: ru(1.25);
+    // }
+
+    // a {
+      // color: $main-nav-font-color;
+    // }
+
+    // a:hover,
+    // .has-children.active > .menu-header,
+    // .has-children > .menu-header:hover {
+      // color: $main-nav-color-accent;
+      // cursor: pointer;
+      // transition: color .3s;
+    // }
+
+    // .back {
+      // display: none;
+    // }
+
+    // .close {
+      // opacity: 0;
+      // pointer-events: none;
+      // position: absolute;
+      // right: 0;
+      // top: 0;
+    // }
+
+    // .cta-container {
+      // display: flex;
+    // }
+
+    // .cta {
+      // display: flex;
+      // flex-direction: column;
+      // flex: 1;
+      // justify-content: flex-end;
+      // margin: 0 $main-nav-spacing $main-nav-spacing 0;
+    // }
+
+    // .footer-wrapper {
+      // border-top: $main-nav-border;
+      // padding: $main-nav-padding;
+    // }
+
+    // .footer {
+      // align-items: center;
+      // display: flex;
+      // margin: auto;
+      // max-width: $main-nav-max-width;
+      // padding: 0 $main-nav-spacing;
+      // height: ru(1.75);
+
+      // .info {
+        // font-style: italic;
+        // font-weight: $main-nav-weight-bold;
+      // }
+    // }
+
+    // .hamburger-inner {
+      // &,
+      // &:before,
+      // &:after {
+        // height: 2px;
+        // width: 21px;
+      // }
+    // }
+
+    // .has-children {
+      // > .menu-header {
+        // cursor: pointer;
+      // }
+
+      // &:first-of-type {
+        // padding-left: $main-nav-padding;
+      // }
+    // }
+
+    // .has-content a:after {
+      // display: none;
+    // }
+
+    // .has-content.active {
+      // .submenu-wrapper {
+        // display: block;
+      // }
+    // }
+
+    // Special for Swiftype
+    // .icon:not(.st-search-show-outputs) {
+      // display: inline-block;
+    // }
+
+    // .icon.st-search-show-outputs {
+      // display: none;
+    // }
+
+    // .image-row {
+      // flex: 2;
+    // }
+
+    // .intro {
+      // background: none;
+      // display: flex;
+      // flex-direction: column;
+      // flex: 0 0 33%;
+      // line-height: ru(1.25);
+      // position: relative;
+
+      // p {
+        // font-size: 19px;
+      // }
+
+      // > p:last-of-type {
+        // margin-bottom: ru(1.5);
+      // }
+    // }
+
+    // .info-image {
+      // align-self: flex-end;
+      // display: block;
+      // max-height: 124px;
+      // max-width: 124px;
+    // }
+
+    // .has-cta {
+      // justify-content: space-between;
+    // }
+
+    // .logo {
+      // flex-shrink: 0;
+      // height: 0;
+      // left: 0;
+      // margin: 0 $main-nav-logo-margin;
+      // position: relative;
+      // width: $main-nav-logo-width;
+    // }
+
+    // .main-nav-container {
+      // display: flex;
+      // max-width: $main-nav-max-width;
+      // width: 100%;
+    // }
+
+    // .menu {
+      // li {
+        // border-top: 0;
+        // color: $main-nav-font-color;
+        // display: inline-block;
+        // padding: 0 $main-nav-spacing 0 0;
+      // }
+
+      // .back {
+        // display: none;
+      // }
+
+      // .blog-articles {
+        // padding: 0;
+      // }
+
+      // .intro {
+        // display: flex;
+      // }
+    // }
+
+    // .list {
+      // flex: 0 1 25%;
+
+      // li {
+        // display: block;
+      // }
+    // }
+
+    // .menu > li:first-of-type {
+      // padding-top: 0;
+    // }
+
+    // .menu-header {
+      // padding: 0;
+    // }
+
+    // &.simple {
+      // .text {
+        // &:last-of-type {
+          // display: block;
+        // }
+      // }
+    // }
+
+    // .nav-panel-wrapper {
+      // background-color: $main-nav-white;
+      // flex-basis: 100%;
+      // flex-direction: row;
+      // order: 2;
+      // position: static;
+      // margin-right: $main-nav-spacing;
+
+      // .menu:not(:first-of-type) {
+        // align-self: flex-end;
+      // }
+    // }
+
+    // .primary-panel {
+      // border-top: 0;
+      // display: flex;
+      // flex-basis: 100%;
+      // position: static;
+      // transition: flex-basis .3s ease;
+
+      // ul:first-of-type {
+        // align-self: flex-start;
+      // }
+
+      // ul:last-of-type {
+        // align-self: flex-end;
+      // }
+
+      // li {
+        // width: auto;
+      // }
+   // }
+
+    // .primary-panel,
+    // .secondary-panel {
+      // border-top: 0;
+    // }
+
+    // .primary-panel-wrapper {
+      // display: flex;
+      // height: $main-nav-searchbar-height; Prevents menu items from showing on ".searching"
+      // opacity: 1;
+      // overflow: hidden;
+      // transition: opacity .3s;
+      // width: 100%;
+    // }
+
+    // .search {
+      // align-items: center;
+      // align-self: flex-end;
+      // border-bottom: 0;
+      // display: flex;
+      // flex-basis: rem-calc(30);
+      // justify-content: flex-end;
+      // max-width: $main-nav-search-icon-size; IE flexbox padding fix
+      // order: 3;
+      // padding: 0;
+      // position: relative;
+
+      // .icon {
+        // cursor: pointer;
+        // top: 1px;
+      // }
+
+      // .icon:after {
+        // vertical-align: middle;
+      // }
+    // }
+
+    // .search-input {
+      // display: inline;
+      // flex-basis: 0;
+      // padding: 0;
+      // transition: flex-basis .3s ease;
+    // }
+
+    // .secondary-nav {
+      // border-top: 0;
+      // margin-right: 0;
+
+      // .nav-header {
+        // padding: 0 $main-nav-padding 0 0;
+      // }
+    // }
+
+    // .submenu-wrapper {
+      // background: $main-nav-bgcolor;
+      // border-top: $main-nav-border;
+      // box-shadow: $main-nav-shadow;
+      // cursor: auto;
+      // display: none;
+      // left: 0;
+      // position: absolute;
+      // top: 100%;
+      // width: 100%;
+    // }
+
+    // .submenu {
+      // display: block;
+      // margin: auto;
+      // max-width: $main-nav-max-width;
+      // padding: ($main-nav-spacing / 4) 0;
+
+      // Special padding to account for logo alignment
+      // padding-left: 2 * $main-nav-logo-margin + $main-nav-logo-width;
+
+      // a {
+        // position: relative;
+      // }
+
+      // > li {
+        // line-height: ru(1.25);
+        // display: inline-block;
+      // }
+
+
+      // .submenu-wrapper {
+        // border-top: 0;
+        // background-color: $main-nav-white;
+        // box-shadow: inset $main-nav-shadow, $main-nav-shadow;
+      // }
+    // }
+
+    // Special styling to increase pointer-event area
+    // And add custom CSS downarrow
+    // START * * * *
+    // scss-lint:disable SelectorDepth
+    // scss-lint:disable NestingDepth
+
+    // .submenu > li {
+      // padding: 0;
+      // padding-bottom: ru(1.5);
+      // margin-bottom: ru(-1.5);
+
+      // .submenu-header {
+        // padding: 0 $main-nav-padding;
+      // }
+
+      // .submenu-header:after {
+        // display: none;
+      // }
+
+      // &:not(:first-of-type) {
+        // .submenu-header {
+          // border-left: $main-nav-border;
+        // }
+      // }
+    // }
+
+    // .has-content.active {
+      // cursor: pointer;
+
+      // .submenu-header {
+        // color: $main-nav-color-accent;
+      // }
+
+      // .submenu-header:after {
+        // background: $main-nav-bgcolor;
+        // bottom: -47%;
+        // box-shadow: $main-nav-downarrow-shadow;
+        // content: '';
+        // display: block;
+        // height: 1rem;
+        // left: 50%;
+        // position: absolute;
+        // top: auto;
+        // transform: translateX(-50%) scaleY(.6) rotate(45deg);
+        // width: 1rem;
+        // z-index: 1;
+      // }
+    // }
+
+    // * * * END
+    // scss-lint:enable SelectorDepth
+    // scss-lint:enable NestingDepth
+
+    // .secondary-panel {
+      // display: flex;
+      // flex: 1;
+      // left: 0;
+      // margin: auto;
+      // max-width: $main-nav-max-width;
+      // opacity: 1;
+      // overflow: auto;
+      // padding: 0 $main-nav-spacing;
+      // margin-top: $main-nav-spacing;
+      // pointer-events: all;
+      // position: relative;
+      // right: auto;
+
+      // li {
+        // @include typography-7;
+
+        // color: $main-nav-font-color;
+        // line-height: initial;
+        // margin-bottom: 0;
+        // margin-top: ru(.25);
+      // }
+
+      // .blog-articles {
+        // flex: 1 1 66%;
+      // }
+
+      // .blog-articles,
+      // .tag-container {
+        // margin-bottom: ru(1);
+      // }
+
+      // .intro {
+        // padding: 0 ru(1.5) 0 0;
+      // }
+
+      // .list {
+        // margin-bottom: $main-nav-padding;
+        // padding: 0 ru(1.5);
+      // }
+
+      // .double-wide {
+        // flex: 2;
+      // }
+
+      // .menu-header {
+        // font-size: 16px;
+        // line-height: inherit;
+      // }
+    // }
+
+    // .mobile-scroll-buffer {
+      // scss-lint:disable ImportantRule
+      // display: none !important;
+      // scss-lint:enable ImportantRule
+    // }
+
+    // Variant Styles
+    // &.searching {
+      // .close {
+        // pointer-events: all;
+        // opacity: 1;
+        // transition-delay: .3s;
+        // transition: opacity .6s ease;
+      // }
+
+      // .primary-panel {
+        // flex-basis: 0;
+        // overflow: hidden;
+      // }
+
+      // .primary-panel-wrapper {
+        // opacity: 0;
+        // transition: opacity 0s;
+      // }
+
+      // .search,
+      // .search-input {
+        // flex-basis: 100%;
+      // }
+
+      // .search-input {
+        // margin-right: 2rem; Right margin to make room for "X" icon
+        // padding: 0 ru(1);
+        // transition: flex-basis .3s ease, padding 0s .1s, margin 0s .1s;
+      // }
+    // }
+
+    // .has-children.active {
+      // > .submenu-wrapper {
+        // display: block;
+        // left: 0;
+        // position: absolute;
+        // top: 100%;
+        // width: 100%;
+      // }
+    // }
+  // }
+// }

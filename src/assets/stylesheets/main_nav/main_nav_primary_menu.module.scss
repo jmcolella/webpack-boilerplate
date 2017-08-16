@@ -1,0 +1,48 @@
+$main-nav-color-accent:       #ee7832; // Needs to be updated when Base Styles are updated
+$main-nav-padding:            ru(.5);
+
+.header-wrapper {
+  &:first-of-type {
+    padding-top: ru(1);
+    border-top: 0;
+  }
+}
+
+.has-children.active > .menu-header,
+.has-children > .menu-header:hover {
+  color: $main-nav-color-accent;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.menu-header {
+  display: inline-block;
+  font-weight: $semiboldweight;
+  padding: rem-calc(8) 0;
+}
+
+@media #{$large-up} {
+  .header-wrapper {
+    color: color('neutral-2');
+    display: inline-block;
+    padding: 0 ru(1) 0 0;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
+
+  .has-children {
+    > .menu-header {
+      cursor: pointer;
+    }
+
+    &:first-of-type {
+      padding-left: $main-nav-padding;
+    }
+  }
+
+  .menu-header {
+    padding: 0;
+  }
+}

@@ -1,0 +1,9 @@
+@import 'assets/stylesheets/base_styles/typography';
+@import 'assets/stylesheets/base_styles/colors';
+@import 'assets/stylesheets/utilities/functions';
+@import 'assets/stylesheets/utilities/break_points';
+
+body {
+  margin: 0;
+  font-family: $font-family-sans-serif;
+}

@@ -1,0 +1,345 @@
+// Base Colors
+$main-nav-bgcolor:            color('neutral-7');
+$main-nav-border-color:       color('neutral-5');
+$main-nav-color-accent:       #ee7832; // Needs to be updated when Base Styles are updated
+$main-nav-font-color:         color('neutral-2');
+$main-nav-shadow-color:       rgba(0, 0, 0, .1);
+$main-nav-white:              color('neutral-8');
+
+// Variables
+$main-nav-border-size:        1px;
+$main-nav-border:             $main-nav-border-size solid $main-nav-border-color;
+$main-nav-chevron-spacing:    5px;
+$main-nav-downarrow-shadow:   2.5px 2.5px 4px $main-nav-shadow-color;
+$main-nav-logo-margin:        ru(1);
+$main-nav-logo-width:         rem-calc(89px);
+$main-nav-max-width:          rem-calc(1240px);
+$main-nav-search-icon-size:   rem-calc(18px);
+$main-nav-searchbar-height:   ru(1.75);
+$main-nav-shadow:             0 2px 3px $main-nav-shadow-color;
+$main-nav-spacing:            ru(1);
+$main-nav-transition-speed:   .5s;
+$main-nav-weight-bold:        600;
+$main-nav-padding:            ru(.5);
+
+.has-content {
+  .submenu-header:after {
+    // @extend %arrow;
+  }
+}
+
+.submenu {
+  > li {
+    padding: .5rem 0;
+  }
+}
+
+.submenu-header {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-header {
+  display: inline-block;
+  padding: .5rem 0;
+  color: $main-nav-font-color;
+  font-weight: $main-nav-weight-bold;
+}
+
+.has-content a,
+.back a {
+  position: relative;
+}
+
+.secondary-panel {
+  height: calc(100% - #{$main-nav-searchbar-height});
+  top: $main-nav-searchbar-height;
+  transition: transform $main-nav-transition-speed;
+  width: 100%;
+  height: 100%;
+  background-color: $main-nav-white;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; // Disables momentum scrolling on primary to prevent hiding secondary panel
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: -100%;
+  top: 0;
+
+  > li {
+    border-top: $main-nav-border;
+    padding: $main-nav-padding $main-nav-spacing;
+    left: 0;
+  }
+
+  > li:first-of-type {
+    border-top: 0;
+  }
+
+  > li:last-of-type {
+    border-bottom: 0;
+  }
+
+  .back {
+    padding-top: ru(1.25);
+  }
+}
+
+.back > span {
+  font-weight: $main-nav-weight-bold;
+  padding-left: 2 * $main-nav-spacing;
+  position: relative;
+
+  &:before {
+    // @extend %arrow;
+
+    // background-image: $main-nav-chevron-left;
+    display: inline-block;
+    left: $main-nav-chevron-spacing;
+    right: auto;
+  }
+}
+
+.info-image {
+  display: none;
+}
+
+.intro {
+  @include typography-5;
+
+  background-color: $main-nav-white;
+  margin-bottom: 0;
+  padding: $main-nav-spacing;
+
+  p {
+    color: $main-nav-font-color;
+  }
+
+  strong {
+    font-weight: $main-nav-weight-bold;
+  }
+}
+
+.list {
+  li {
+    line-height: initial;
+    padding: ($main-nav-spacing / 4) 0;
+  }
+}
+
+.has-cta {
+  justify-content: space-between;
+}
+
+.cta-container {
+  display: flex;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 0 $main-nav-spacing $main-nav-spacing 0;
+
+  .info {
+    text-align: center;
+  }
+}
+
+@media #{$large-up} {
+  .submenu-wrapper {
+    background: $main-nav-bgcolor;
+    border-top: $main-nav-border;
+    box-shadow: $main-nav-shadow;
+    cursor: auto;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  .submenu {
+    display: block;
+    margin: auto;
+    max-width: $main-nav-max-width;
+    padding: ($main-nav-spacing / 4) 0;
+
+    // Special padding to account for logo alignment
+    padding-left: 2 * $main-nav-logo-margin + $main-nav-logo-width;
+
+    a {
+      position: relative;
+    }
+
+    > li {
+      line-height: ru(1.25);
+      display: inline-block;
+    }
+
+
+    .submenu-wrapper {
+      border-top: 0;
+      background-color: $main-nav-white;
+      box-shadow: inset $main-nav-shadow, $main-nav-shadow;
+    }
+  }
+
+  .has-content a:after {
+    display: none;
+  }
+
+  .has-content.active {
+    .submenu-wrapper {
+      display: block;
+    }
+  }
+
+  .intro {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 33%;
+    line-height: ru(1.25);
+    position: relative;
+    padding: 0 ru(1.5) 0 0;
+
+    p {
+      font-size: 19px;
+    }
+
+    > p:last-of-type {
+      margin-bottom: ru(1.5);
+    }
+  }
+
+  .info-image {
+    align-self: flex-end;
+    display: block;
+    max-height: 124px;
+    max-width: 124px;
+  }
+
+  .list {
+    flex: 0 1 25%;
+
+    li {
+      display: block;
+    }
+  }
+
+  .menu-header {
+    padding: 0;
+  }
+
+  // Special styling to increase pointer-event area
+  // And add custom CSS downarrow
+  // START * * * *
+  // scss-lint:disable SelectorDepth
+  // scss-lint:disable NestingDepth
+
+  .submenu > li {
+    padding: 0;
+    padding-bottom: ru(1.5);
+    margin-bottom: ru(-1.5);
+
+    .submenu-header {
+      padding: 0 $main-nav-padding;
+    }
+
+    .submenu-header:after {
+      display: none;
+    }
+
+    &:not(:first-of-type) {
+      .submenu-header {
+        border-left: $main-nav-border;
+      }
+    }
+  }
+
+  .has-content.active {
+    cursor: pointer;
+
+    .submenu-header {
+      color: $main-nav-color-accent;
+    }
+
+    .submenu-header:after {
+      background: $main-nav-bgcolor;
+      bottom: -47%;
+      box-shadow: $main-nav-downarrow-shadow;
+      content: '';
+      display: block;
+      height: 1rem;
+      left: 50%;
+      position: absolute;
+      top: auto;
+      transform: translateX(-50%) scaleY(.6) rotate(45deg);
+      width: 1rem;
+      z-index: 1;
+    }
+  }
+
+  // * * * END
+  // scss-lint:enable SelectorDepth
+  // scss-lint:enable NestingDepth
+
+  .secondary-panel {
+    display: flex;
+    flex: 1;
+    left: 0;
+    margin: auto;
+    max-width: $main-nav-max-width;
+    opacity: 1;
+    overflow: auto;
+    padding: 0 $main-nav-spacing;
+    margin-top: $main-nav-spacing;
+    pointer-events: all;
+    position: relative;
+    right: auto;
+    border-top: 0;
+
+    li {
+      @include typography-7;
+
+      color: $main-nav-font-color;
+      line-height: initial;
+      margin-bottom: 0;
+      margin-top: ru(.25);
+    }
+
+    .blog-articles {
+      flex: 1 1 66%;
+    }
+
+    .blog-articles,
+    .tag-container {
+      margin-bottom: ru(1);
+    }
+
+    .intro {
+      padding: 0 ru(1.5) 0 0;
+    }
+
+    .list {
+      margin-bottom: $main-nav-padding;
+      padding: 0 ru(1.5);
+    }
+
+    .double-wide {
+      flex: 2;
+    }
+
+    .menu-header {
+      font-size: 16px;
+      line-height: inherit;
+    }
+  }
+
+  .back {
+    display: none;
+  }
+}

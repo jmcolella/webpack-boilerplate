@@ -1,0 +1,175 @@
+// Base Colors
+$main-nav-bgcolor:            color('neutral-7');
+$main-nav-border-color:       color('neutral-5');
+$main-nav-color-accent:       #ee7832; // Needs to be updated when Base Styles are updated
+$main-nav-font-color:         color('neutral-2');
+$main-nav-shadow-color:       rgba(0, 0, 0, .1);
+$main-nav-white:              color('neutral-8');
+
+// Variables
+$main-nav-border-size:        1px;
+$main-nav-border:             $main-nav-border-size solid $main-nav-border-color;
+$main-nav-chevron-spacing:    5px;
+$main-nav-downarrow-shadow:   2.5px 2.5px 4px $main-nav-shadow-color;
+$main-nav-logo-margin:        ru(1);
+$main-nav-logo-width:         rem-calc(89px);
+$main-nav-max-width:          rem-calc(1240px);
+$main-nav-search-icon-size:   rem-calc(18px);
+$main-nav-searchbar-height:   ru(1.75);
+$main-nav-shadow:             0 2px 3px $main-nav-shadow-color;
+$main-nav-spacing:            ru(1);
+$main-nav-transition-speed:   .5s;
+$main-nav-weight-bold:        600;
+$main-nav-padding:            ru(.5);
+
+// Helper classes to make the nav work well with the body on mobile
+// Only necessary in implementation
+.wrapper {
+  height: $main-nav-searchbar-height;
+
+  .panel {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+}
+// End Helper
+
+.panel {
+  @include typography-6(false);
+
+  background-color: $main-nav-white;
+  border-bottom: $main-nav-border;
+  height: $main-nav-searchbar-height;
+  transition: height .5s ease;
+  position: relative;
+  // scss-lint:disable all
+  // This is webkit/Safari specific to enhance performance for intensive transitions/rendering
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  // scss-lint:enable all
+}
+
+.container {
+  height: 100%;
+}
+
+.logo {
+  left: $main-nav-spacing;
+  margin-left: -.1rem;
+  order: 1;
+  position: absolute;
+  top: -5px;
+  transition: transform .3s ease;
+  z-index: 10;
+}
+
+.panel-wrapper {
+  background-color: $main-nav-bgcolor;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.primary-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.primary-panel {
+  height: 0;
+  order: 3;
+  position: absolute;
+  top: $main-nav-searchbar-height;
+  transition: height 1s ease;
+}
+
+.primary-panel,
+.secondary-panel {
+  height: calc(100% - #{$main-nav-searchbar-height});
+  top: $main-nav-searchbar-height;
+  transition: transform $main-nav-transition-speed;
+  width: 100%;
+}
+
+.primary-panel-wrapper,
+.secondary-panel {
+  height: 100%;
+  background-color: $main-nav-white;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; // Disables momentum scrolling on primary to prevent hiding secondary panel
+}
+
+@media #{$large-up} {
+  .panel {
+    display: flex;
+    justify-content: center;
+    font-size: rem-calc(13px);
+    margin-bottom: ru(1);
+    margin: 0;
+    border-bottom: 0;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  }
+
+  .container {
+    display: flex;
+    max-width: $main-nav-max-width;
+    width: 100%;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    height: 0;
+    left: 0;
+    margin: 0 1.5rem;
+    position: relative;
+    width: 5.5625rem;
+  }
+
+  .panel-wrapper {
+    background-color: $main-nav-white;
+    flex-basis: 100%;
+    flex-direction: row;
+    order: 2;
+    position: static;
+    margin-right: $main-nav-spacing;
+
+    .menu:not(:first-of-type) {
+      align-self: flex-end;
+    }
+  }
+
+  .primary-panel {
+    border-top: 0;
+    display: flex;
+    flex-basis: 100%;
+    position: static;
+    transition: flex-basis .3s ease;
+
+    li {
+      width: auto;
+    }
+  }
+
+  .primary-panel,
+  .secondary-panel {
+    border-top: 0;
+  }
+
+  .primary-panel-wrapper {
+    display: flex;
+    height: $main-nav-searchbar-height; // Prevents menu items from showing on ".searching"
+    opacity: 1;
+    overflow: hidden;
+    transition: opacity .3s;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

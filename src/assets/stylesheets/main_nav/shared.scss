@@ -1,0 +1,26 @@
+%ul_base {
+  font: inherit;
+  margin-left: 0;
+
+  a {
+    display: block;
+    width: 100%;
+  }
+
+  .tag {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+%li_base {
+  display: block;
+  list-style: none;
+  width: 100%;
+}
+
+%a_base {
+  color: $main-nav-font-color;
+  font-weight: 400;
+  text-decoration: none;
+}
